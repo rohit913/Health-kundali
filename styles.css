@@ -1,0 +1,727 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Lato;
+  
+}
+/* Base styles for the navbar */
+/* Base styles */
+.navbar {
+  background-color: black;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.logo {
+  /* color: #f2f2f2;
+  text-decoration: none; */
+  /* font-size: 1.5em; Adjust the logo size as needed */
+    display: inline-block; /* Or 'block' if preferred */
+    margin-top: 10px; /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust as needed */
+    padding: 5px; /* Optional padding around the logo */
+}
+
+.logo img {
+    height: auto; /* Maintain aspect ratio */
+    width: 70px; /* Example size, adjust as needed */
+    /* Add a transition effect for the hover state, if desired */
+    transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover img {
+    transform: scale(1.1); /* Slightly increase the size on hover */
+}
+.service img.in-view :hover{
+  transform: scale(1.1); /* Slightly increase the size on hover */
+}
+.navbar a {
+  color: #f2f2f2;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 0.9em; /* Adjust link text size as needed */
+}
+.navbar-right {
+  align-items: center;
+  display: flex;
+    text-align: right;
+    padding: 10px; /* Adjust the padding as needed */
+    color: white; /* Text color */
+} 
+  
+
+.navbar-link {
+    text-decoration: none; /* Removes the underline from the links */
+    color: white; /* Sets the link color to white */
+    font-size: 18px; /* Sets the font size for the links */
+    margin-left: 15px; /* Spacing between the links */
+}
+
+.navbar-link .icon {
+    margin-right: 5px; /* Spacing between the icon and the text */
+}
+
+/* Styles for the icons */
+.navbar-link .icon {
+    font-style: normal; /* Ensures that the icon text isn't italicized */
+    color: #FF4136; /* Sets the icon color */
+}
+
+.navbar-link.email::before {
+    content: "\f0e0"; /* FontAwesome icon code for envelope */
+    margin-right: 5px;
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar-right {
+        text-align: center; /* Centers the links on smaller screens */
+    }
+}
+.navbar a:hover,
+.logo:hover {
+  /* background-color: #ddd; */
+  color: black;
+}
+
+/* .navbar-right {
+  display: flex;
+} */
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 25px; /* Height of the hamburger icon */
+}
+
+.hamburger div {
+  background-color: #f2f2f2;
+      height: 3px; /* Height of one line of the hamburger icon */
+  width: 30px; /* Width of the hamburger icon */
+  border-radius: 3px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .navbar a,
+  .logo {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* Hide links initially */
+  }
+
+  .hamburger {
+    display: flex; /* Show the hamburger icon */
+  }
+
+  /* When the hamburger menu is toggled to 'active', display the links */
+  .navbar-right.active {
+    display: flex;
+  }
+  .option-item{
+    display: none;
+  }
+}
+
+/* hero section starting  */
+.hero-section {
+  background-image: url("assets/bg.png"); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  padding: 50px; /* Adjust the padding as needed */
+  display: flex;
+  align-items: center; /* Aligns vertically */
+  justify-content: flex-start; /* Aligns horizontally to the left */
+  color: #070707; /* Adjust the text color as needed */
+  text-align: left; /* Aligns text to the left */
+  height: 50vh; /* Set to the height of the viewport */
+}
+
+.hero-content {
+  max-width: 67%; /* Adjust the max-width as needed */
+}
+
+.hero-content h1 {
+  font-size: 2.5em; /* Adjust the size as needed */
+  margin-bottom: 20px; /* Adds space below the heading */
+}
+
+.hero-content p {
+  font-size: 1.2em; /* Adjust the size as needed */
+  margin-bottom: 30px; /* Adds space below the paragraph */
+}
+
+.cta-button1 {
+  background-color: #ec0200; /* Adjust button background color as needed */
+  color: #fff; /* Adjust button text color as needed */
+  padding: 15px 30px; /* Adjust padding as needed */
+  text-decoration: none; /* Removes underline from the link */
+  font-weight: bold; /* Makes the button text bold */
+  border-radius: 5px; /* Adds rounded corners to the button */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.cta-button1:hover {
+  background-color: #d62828; /* Darker shade for hover effect */
+}
+@media (max-width: 380px){
+.solutions-grid { 
+  grid-template-columns: 1fr !important;
+}
+}
+@media (max-width: 500px) {
+    .cta-button1 {
+        font-size: 11px !important;
+    }
+  .hero-section {
+    margin-top: 149px !important;
+    padding: 50px 15px !important;
+  }
+  .hero-content h1 {
+    font-size: 1.25em !important; /* Smaller font size for h1 on small screens */
+  }
+  .cta-button1 {
+    padding: 9px 9px;
+}
+.navbar {
+  position: fixed;
+  flex-direction: column;
+  height: auto;
+  padding: 1px 0;
+  width: 100%;
+  top: 0px;
+  z-index: 999;
+}
+}
+@media  (min-width: 400px) and (max-width: 768px){
+  .solutions-footer {
+    flex-flow: wrap!important;
+    
+}
+}
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 189px;
+    /* padding: 20px; Reduced padding for smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+  }
+
+  .hero-content h1 {
+    font-size: 2em; /* Smaller font size for h1 on small screens */
+  }
+
+  .hero-content p {
+    font-size: 1em; /* Smaller font size for paragraph on small screens */
+  }
+
+  .cta-button1 {
+    padding: 10px 20px; /* Smaller padding for button on small screens */
+  }
+  .navbar {
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+}
+
+}
+@media (min-width: 769px) and (max-width: 2500px) {
+.navbar{
+    top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    padding: 0px;
+}
+.hero-section {
+  margin-top: 100px;
+  height: calc(90vh - 50px);
+padding: 0px 40px!important;
+}
+}
+
+/* Tablet and Medium Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-content {
+    max-width: 50%; /* Adjust the max-width for medium screens */
+  }
+  
+}
+
+/* Large Devices - Desktops */
+@media (min-width: 1025px) {
+  .hero-content {
+    max-width: 600px; /* Adjust the max-width for large screens */
+  }
+}
+.solutions-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #0a0a0a; /* Adjust as needed */
+  color: #333; /* This should be a dark color based on your image */
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 53px;
+  padding: 20px;
+}
+.solutions-section h2 {
+  max-width: 60%;
+    margin: auto;
+  color: #ddd;
+  font-size:4.5vw;
+  font-weight: 500;
+  padding: 10px;
+}
+.solution-item {
+  background-color: #f8f8f8; /* Light grey background, adjust as needed */
+  border: 2px solid #e63946; /* Red border color from your image */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+.solutions-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  font-weight: bold;
+  background-color: #da1010; /* Dark background based on your image */
+  color: #fff; /* White text color */
+}
+@media (max-width: 768px) {
+  .solutions-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+.solutions-footer { 
+    color: #fff; /* White text color */
+     display: flex;
+     justify-content: space-around;
+     padding: 16px 0; /* Vertical padding */
+     text-align: center;
+    
+ }
+ 
+ .footer-item {
+     margin: 0 10px; /* Horizontal spacing */
+     display: flex;
+     flex-direction: row;
+     align-items: center; /* Center align the content for each item */
+ }
+ 
+ .footer-item .icon img {
+     margin-bottom: 10px; /* Space between the icon and the text */
+ }
+ 
+ /* Bold the number in the text */
+ .footer-item strong {
+     font-weight: bold;
+     display: block; /* Make the bold number its own line */
+ }
+ 
+ /* Adjust the size of the images (icons) if necessary */
+ .footer-item .icon img {
+     height: auto;
+     width: 74%;  /* Example size, adjust as needed */
+ }
+ 
+ @media (max-width: 768px) {
+     .solutions-footer {
+         flex-direction: column;
+     }
+ 
+     .footer-item {
+         margin-bottom: 20px; /* Add bottom margin for stacking */
+     }
+ }
+ 
+ 
+.challenges {
+  text-align: center;
+  margin: 0;
+  padding: 40px;
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates a 3-column layout */
+  gap: 20px; /* Space between grid items */
+}
+
+.challenge-item {
+  background-color: #fff; /* Adjust as needed */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+}
+
+.challenge-item img {
+  width: 50px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 10px;
+}
+.challenges h2 {
+    text-align: center; /* Centers the text */
+    font-size: 46px; /* Large font size for headings */
+    font-weight: bold; /* Bold font weight *
+    margin-top: 20px; /* Spacing above the heading */
+    margin-bottom: 20px; /* Spacing below the heading */
+}
+@media (max-width: 768px) {
+    .challenges h2 {
+      font-size: 28px; /* Smaller font size for mobile devices */
+    }
+  }
+.challenge-item h3 {
+  color: #333; /* Adjust as needed */
+  margin-bottom: 10px;
+}
+
+#cta-button2 {
+    background-color: #FF4136; /* Bright red background, adjust the color code as needed */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 15px 30px; /* Top and bottom padding of 15px, left and right padding of 30px */
+    font-size: 18px; /* Font size of 18px */
+    font-weight: bold; /* Bold font weight */
+    text-transform: uppercase; /* Uppercase text */
+    border-radius: 5px; /* Rounded corners with a radius of 5px */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#cta-button2:hover {
+    background-color: #811313; /* Slightly darker shade of red for the hover state */
+}
+#cta-button2:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 2px #fff; /* Optional: Adds a white outline when the button is focused */
+  }
+
+@media (max-width: 768px) {
+  .challenge-grid {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+  }
+}
+.challenge-item img {
+  width: 120px; /* Adjust based on actual icon size */
+  height: auto;
+  margin: 15px;
+}
+
+/* Responsive adjustments for better viewing on all devices */
+@media (max-width: 1024px) {
+  .challenge-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablet view */
+  }
+}
+
+@media (max-width: 768px) {
+  .challenge-grid {
+    grid-template-columns: 1fr; /* One column for mobile view */
+  }
+  .service img {
+    width: 76% !important;
+  }
+}
+.about {
+  text-align: center;
+  padding: 20px;
+  background: #f8f8f8;
+}
+
+.about h1 {
+  color: #000;
+  font-size: 2.5em; /* 40px/16=2.5em */
+  margin: 24px;
+}
+
+.about p {
+   font-size: x-large;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* Services Section */
+.services {
+  display: flex;
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  gap: 20px; /* Add space between the services */
+}
+
+.service {
+  flex: 0 1 30%; /* Flex basis of 30% with wrapping */
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.service img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.service h2 {
+  font-size: 1.5em; /* 24px/16=1.5em */
+  color: #333;
+  margin: 20px 0;
+}
+
+.service p {
+  font-size: 1em; /* 16px */
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Button Style */
+.services-button {
+  font-size: 1em; /* 16px */
+  color: #fff;
+  background-color: #ec0200;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6e0202;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .services {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service {
+    flex-basis: 80%;
+  }
+}
+.testimonials {
+    text-align: center;
+    padding: 40px;
+    background: #f0f0f0;
+  }
+  
+  .testimonials h2 {
+    font-size: 3em;
+    color: #000;
+    margin-bottom: 30px;
+  }
+  
+  .testimonial-cards {
+    display: flex;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+    gap: 20px;
+  }
+  
+  .testimonial-card {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    flex-basis: 30%;
+    margin: 10px;
+  }
+  
+  .testimonial-card div {
+    text-align: right;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .testimonial-cards {
+      flex-direction: column;
+    }
+  
+    .testimonial-card {
+      flex-basis: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .health-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background: #e91307; /* Adjust the color to match your brand red */
+  }
+  
+  .banner-content > div {
+    padding: 20px;
+    margin-left: 24px;
+    flex-basis: 50%; /* Adjust as needed */
+  }
+  
+  .banner-content h1 {
+    font-weight: 100;
+     font-size: 2.5em;
+    margin-bottom: 1em;
+  }
+  
+  .banner-content-button {
+    background-color: black; /* Adjust button color as needed */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    /* font-size: 1em; */
+    border-radius: 17px;
+    text-transform: uppercase; /* Stylistic choice for button text */
+  }
+  
+  .health-banner > div:last-child {
+    flex-basis: 50%; /* Adjust as needed */
+  }
+  
+  .health-banner img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove any extra space below the image */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .health-banner {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .banner-content > div, .health-banner > div:last-child {
+      flex-basis: auto; /* Take up the full width of the container */
+    }
+  
+    .health-banner img {
+      /* Optional: adjust how the image should behave on smaller screens */
+      width: 100%; /* Full width of the container */
+      max-height: 300px; /* Maximum height to ensure it's not too large */
+      object-fit: cover; /* Adjust the object fit if needed */
+    }
+  }
+
+footer {
+    border-top: groov;
+    background: #313131; /* Black background for the footer */
+    padding: 40px 20px; /* Padding for the footer */
+  }
+  
+  .contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1080px; /* Max width to match the image's layout */
+    margin: 0 auto; /* Center the section */
+  }
+  
+  .contact-info h1 {
+    font-size: 2em; /* Large font size for the heading */
+    margin-bottom: 0.5em;
+    color: #ddd;
+  }
+  
+  .contact-info p {
+    font-size: 1em; /* Standard font size for the paragraph */
+    color: #ddd;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%; /* Taking up half the width of the contact section */
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 20px; /* Space between the first name and last name inputs */
+    margin-bottom: 20px; /* Space after the group */
+  }
+  
+  .form-group input, .contact-form input, .contact-form textarea {
+    background: transparent;
+    border: 1px solid;
+    padding: 10px;
+    color: white;
+    border-radius: 6px ;
+  }
+  
+  .contact-form textarea {
+    min-height: 100px; /* Minimum height for the textarea */
+    margin: 13px; /* Space after the textarea */
+  }
+  
+  .contact-form button {
+    background: #fa1003; /* Bright red background for the button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 0; /* Square button edges */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .contact-info, .contact-form {
+      max-width: 100%; /* Full width for mobile */
+      padding: 10px
+    }
+  
+    .form-group {
+      flex-direction: column;
+    }
+  
+    .form-group input {
+      width: 100%; /* Full width for inputs on mobile */
+    }
+  
+    .contact-form button {
+      width: 100%; /* Full width for button on mobile */
+    }
+  }

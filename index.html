@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Kundali Landing Page</title>
+    <!-- <link rel="stylesheet" href="swiper-bundle.min.css"> -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Initial state for the service images */
+    .service img {
+        transform: scale(0);
+        transition: transform 0.5s ease-out;
+    }
+
+    /* State when the service image is in view */
+    .service img.in-view {
+        transform: scale(1);
+    }
+
+    /* Initial state for the service descriptions */
+    .service {
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+    }
+
+    /* State when the service description is in view */
+    .service.in-view {
+        opacity: 1;
+    }
+
+    /* Button hover effect */
+    .services-button {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        /* Indicate it's clickable */
+    }
+
+    .services-button:hover {
+        transform: translateY(-3px);
+        /* Moves the button up slightly */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Simple popup animation for the modal */
+    @keyframes popup {
+        from {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        animation: popup 0.5s;
+    }
+
+    /* Add more styles for modal content as needed */
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="">
+            </a>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="navbar-right" >
+                <a href="tel:+9910202801" class="navbar-link">
+                    <span class="icon">&#128222;</span> +91 9910202801
+                </a>
+                <div class="option-item">
+                    <a href="javascript:;" style="color: #fff;">|</a>
+                  </div>
+    
+                <a href="mailto:coaching@pmftraining.com" class="navbar-link">
+                    <span class="icon">&#9993;</span> coaching@pmftraining.com
+                </a>
+                <!-- Add any links on the right side of the navbar -->
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <!-- Hero section with the main message and call to action -->
+        <div class="hero-content">
+            <h1>Do you know your personality say a lot about your health?</h1>
+            <p>Just answer a few questions about yourself & know everything from your personality to your ideal diet!
+            </p>
+            <a href="#" class="cta-button1">Get My Health Kundali</a>
+        </div>
+    </section>
+
+    <section class="challenges">
+        <h2>6 Challenges You Might Have Finding The Right Diet Plan</h2>
+        <div class="challenge-grid">
+            <!-- Individual Difference Challenge -->
+            <div class="challenge-item">
+                <img src="assets/Icon 01.png" alt="Individual Differences">
+                <h3>Individual Differences</h3>
+                <p>People have unique bodies, metabolism rates, and genetic predispositions. A diet that works well for
+                    one person might not yield the same results for another.</p>
+            </div>
+            <!-- Conflicting Information Challenge -->
+            <div class="challenge-item">
+                <img src="assets/Icon 02.png" alt="Conflicting Information">
+                <h3>Conflicting Information</h3>
+                <p>There's a lot of nutritional information available on the internet, often contradictory. Finding a
+                    suitable and scientifically sound diet plan can be confusing.</p>
+            </div>
+            <!-- Misinformation Challenge -->
+            <div class="challenge-item">
+                <img src="assets/Icon 03.png" alt="Misinformation">
+                <h3>Misinformation</h3>
+                <p>Many popular diets promote quick fixes or extreme measures without considering long-term
+                    sustainability or individual health needs. This can affect your health in a bad way.</p>
+            </div>
+            <div class="challenge-item">
+                <img src="assets/Icon 04.png" alt="Health Conditions & Allergies">
+                <h3>Health Conditions & Allergies</h3>
+                <p>Certain health conditions (like diabetes, heart issues, or food allergies) might require specific
+                    dietary modifications. Finding a diet that accommodates these needs while maintaining overall health
+                    can be challenging.</p>
+            </div>
+            <!-- Lifestyle & Socioeconomic Factors Challenge -->
+            <div class="challenge-item">
+                <img src="assets/Icon 05.png" alt="Lifestyle & Socioeconomic Factors">
+                <h3>Lifestyle & Socioeconomic Factors</h3>
+                <p>Socioeconomic status, access to resources, time constraints, and cultural practices can significantly
+                    impact an individual's ability to adopt certain diets or healthy eating habits.</p>
+            </div>
+            <!-- Behavioral Patterns & Psychological Factors Challenge -->
+            <div class="challenge-item">
+                <img src="assets/Icon 06.png" alt="Behavioral Patterns & Psychological Factors">
+                <h3>Behavioral Patterns & Psychological Factors</h3>
+                <p>Emotional eating, cravings, habits, and psychological factors can hinder sticking to a particular
+                    diet plan or maintaining a healthy lifestyle.</p>
+            </div>
+        </div>
+        </div>
+        <div style="margin: 30px;">
+            <button class="services-button" onclick="subscribe()">Get My Health Kundali</button>
+        </div>
+    </section>
+
+    <section class="solutions-section">
+        <!-- Section for solutions to overcome challenges -->
+        <h2>Our Solutions To Overcome These Challenges</h2>
+        <div class="solutions-grid">
+            <!-- Solution Item -->
+            <div class="solution-item">
+                <h3>Customized Approach for Individuals</h3>
+                <p>We use body measurements, genetic insights, and personality assessments to tailor ultra-personalized
+                    diet plans, considering how each body type metabolizes food differently.</p>
+            </div>
+            <div class="solution-item">
+                <h3>Customized Approach for Individuals</h3>
+                <p>We use body measurements, genetic insights, and personality assessments to tailor ultra-personalized
+                    diet plans, considering how each body type metabolizes food differently.</p>
+            </div>
+            <div class="solution-item">
+                <h3>Customized Approach for Individuals</h3>
+                <p>We use body measurements, genetic insights, and personality assessments to tailor ultra-personalized
+                    diet plans, considering how each body type metabolizes food differently.</p>
+            </div>
+            <div class="solution-item">
+                <h3>Customized Approach for Individuals</h3>
+                <p>We use body measurements, genetic insights, and personality assessments to tailor ultra-personalized
+                    diet plans, considering how each body type metabolizes food differently.</p>
+            </div>
+            <div class="solution-item">
+                <h3>Customized Approach for Individuals</h3>
+                <p>We use body measurements, genetic insights, and personality assessments to tailor ultra-personalized
+                    diet plans, considering how each body type metabolizes food differently.</p>
+            </div>
+            <div class="solution-item">
+                <h3>Customized Approach for Individuals</h3>
+                <p>We use body measurements, genetic insights, and personality assessments to tailor ultra-personalized
+                    diet plans, considering how each body type metabolizes food differently.</p>
+            </div>
+            <!-- Repeat for other solution items -->
+            <!-- ... -->
+        </div>
+
+    </section>
+    <section class="solutions-footer">
+        <div class="footer-item">
+            <span class="icon"><img src="assets/10 + experience.png" alt="10+ Years of Experience Icon"></span>
+            <span><strong style="    text-align: justify;
+                font-size: 30px;">10+</strong> Years of Experience</span>
+        </div>
+        <div class="footer-item">
+            <span class="icon"><img src="assets/100 +.png" alt="100+ Community Icon"></span>
+            <span><strong style="    text-align: justify;
+            font-size: 30px;">100+</strong> Strong Community Globally</span>
+        </div>
+        <div class="footer-item">
+            <span class="icon"><img src="assets/Body Science.png" alt="Body Science Icon"></span>
+            Body-Science Backed Solutions
+        </div>
+    </section>
+    <section id="modal-placeholder" class="about">
+        <!-- Section about the Health Quiz -->
+
+
+        <div>
+            <h1>We Are More Than A Health Quiz!</h1>
+            <p>Health Kundali is our initiative to know you better but we are not just another online health quiz. We
+                help people globally with our customized training programs.</p>
+        </div>
+        <div class="services ">
+           
+                <div class="service ">
+                    <img src="assets/img (1).png" alt="Live Workshop">
+                    <h2>2 Hours Value Packed Live Workshop</h2>
+                    <p>We offer a value enriched full of health & fun 2 hours webinar that speaks directly to your
+                        health
+                        needs according to your personality & body type</p>
+                </div>
+                <div class="service ">
+                    <img src="assets/img (2).png" alt="1-on-1 Training">
+                    <h2>1-On-1 Training</h2>
+                    <p>A 15-day training program that offers personalized health & wellness training by experts with
+                        world-class techniques.</p>
+                </div>
+                <div class="service ">
+                    <img src="assets/img (3).png" alt="Membership">
+                    <h2>Membership</h2>
+                    <p>Become a part of our community & get the most of the world-class health & wellness gift.</p>
+                </div>
+           
+        </div>
+       
+
+        <div style="margin: 30px;">
+            <button class="services-button" onclick="subscribe()">Get My Health Kundali</button>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <!-- Testimonials section -->
+        <h2>Hear It From Our Members</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p style=" height: 200px;">"We could relate to her. She knew what would work well with our taste and
+                    choices. Overall it was a very great experience working with her as she is very grounded in her
+                    work."</p>
+                <div>XYZ</div>
+            </div>
+            <div class="testimonial-card">
+                <p style=" height: 200px;">"We could connect with each other, our choices were very similar so the house
+                    turned out truly great."</p>
+                <div>XYZ</div>
+            </div>
+            <div class="testimonial-card">
+                <p style=" height: 200px;">"We could connect with each other, our choices were very similar so the house
+                    turned out truly great."</p>
+                <div>XYZ</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="health-banner">
+        <!-- Final call to action section -->
+        <div class="banner-content">
+            <div>
+                <h1>Still Confused About Your First Step Towards Your Health?</h1>
+                <button class="banner-content-button" onclick="takeTest()">Take the Health Kundali Test</button>
+            </div>
+        </div>
+        <div>
+            <img style="height: 100%;
+            width: 100vw;" src="assets/yoga.png" alt="">
+        </div>
+    </section>
+
+    <footer>
+        <!-- Contact form and footer content -->
+        <section class="contact-section">
+            <div class="contact-info">
+                <h1>Contact Us</h1>
+                <p>PMF TRAINING AND WELLNESS PRIVATE LIMITED
+25-A F/F, MALVIYA NAGAR, NEW DELHI ,SOUTH DELHI, Delhi, 110017</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="first-name" placeholder="First Name">
+                    <input type="text" id="last-name" placeholder="Last Name">
+                </div>
+                <input type="email" id="email" placeholder="Email *">
+                <textarea id="message" placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </footer>
+
+
+    <script>
+      
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to check if an element is in view
+            function isInView(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= window.innerHeight &&
+                    rect.left <= window.innerWidth &&
+                    rect.bottom >= 0 &&
+                    rect.right >= 0
+                );
+            }
+
+            // Function to add animation class to elements in view
+            function addAnimation() {
+                document.querySelectorAll('.service img, .service').forEach((element) => {
+                    if (isInView(element)) {
+                        element.classList.add('in-view');
+                    }
+                });
+            }
+
+            // Event listener for scroll events to add animations
+            window.addEventListener('scroll', addAnimation);
+
+            // Check for animation on initial load
+            addAnimation();
+
+            // Subscribe button click handler
+            window.subscribe = function () {
+                // Simple popup logic
+                const modal = document.createElement('div');
+                modal.className = 'modal';
+                modal.innerHTML = `
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>Thank you for your interest!</p>
+            <!-- Include more content here -->
+          </div>
+        `;
+                document.body.appendChild(modal);
+
+                // Show the modal
+                modal.style.display = 'flex';
+
+                // Close the modal on click
+                modal.querySelector('.close-button').onclick = function () {
+                    modal.style.display = 'none';
+                    document.body.removeChild(modal);
+                };
+            };
+        });
+
+        // Execute the animation check on load
+        addAnimation();
+
+    </script>
+</body>
+<script src="script.js"></script>
+
+
+</html>
