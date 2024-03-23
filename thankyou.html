@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Kundali Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <style>
+      @media (min-width: 769px) and (max-width: 2500px){
+        .hero-section{
+        height: calc(47vW - 100px);
+        }
+      }
+      
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="">
+            </a>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="navbar-right">
+                <a href="tel:+919871182480" class="navbar-link"><i class="fa fa-phone"></i>
+                    +91 9871182480
+                </a>
+                <div class="option-item">
+                    <a href="javascript:;" style="color: #fff;">|</a>
+                </div>
+
+                <a href="mailto:coach@pmftraining.com" class="navbar-link">
+                    <i class="fa fa-envelope"></i> coach@pmftraining.com
+                </a>
+                <!-- Add any links on the right side of the navbar -->
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section" style="background-image: url(assets/HK_Thankyou-Page.png); ">
+        <!-- Hero section with the main message and call to action -->
+        <div class="hero-content fade-in">
+            <h1>THANK YOU!</h1>
+            <p>Thank you for contacting us. <br> In the meantime, Please fill out the Health kundail form</p>
+            <div>
+                <button class="cta-button1" onclick="window.open('https://forms.gle/q3uUqDhaMGtPmbHTA', '_blank');">Get My Health Kundali</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Contact form and footer content -->
+        <section class="contact-section">
+            <div class="contact-info">
+                <h1>Contact Us</h1>
+                <p>PMF Training and Wellness Private Limited
+25-A, First <br>Floor,
+Malviya Nagar,
+New Delhi, South Delhi,
+Delhi - 110017</p>
+            </div>
+            <div id="form-container"style="display: flex;
+            margin: auto;
+            flex-direction: column;
+            max-width: 76%;">
+            <form class="contact-form" id="contact-form" method="post" action="" role="form">
+                    <div class="form-group">
+                        <input type="text" name="name" id="first-name" placeholder="First Name" required="required"
+                            data-error="Enter Your Name">
+                        <input type="text" name="surname" id="last-name" placeholder="Last Name" required="required"
+                            data-error="Enter Your Surname">
+                    </div>
+                    <input style="margin-bottom: 15px;" name="email" required="required"
+                        data-error="Enter Your Email Id" type="email" id="email" placeholder="Email *">
+                    <!-- Adding the Phone number input -->
+                    <input style="margin-bottom: 15px;" name="phone" required="required" type="tel" id="phone"
+                        placeholder="Phone Number *">
+                    <!-- Adding the Location input -->
+                    <input style="margin-bottom: 15px;" name="location" type="text" id="location"
+                        placeholder="Location" required="required">
+                    <!-- Adding the Age input -->
+                    <input style="margin-bottom: 15px;" name="age" type="number" id="age" placeholder="Age" min="0" required="required">
+                    <!-- Removed the Message textarea -->
+                    <button type="submit">Send</button>
+                </form>
+<div id="success-message" style="display: none;">
+        <p>Your form has been submitted successfully!</p>
+    </div>
+</div>
+        </section>
+    </footer>
+  <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+          // Function to check if an element is in view
+          function isInView(el) {
+              const rect = el.getBoundingClientRect();
+              return (
+                  rect.top <= window.innerHeight &&
+                  rect.left <= window.innerWidth &&
+                  rect.bottom >= 0 &&
+                  rect.right >= 0
+              );
+          }
+
+          // Function to add animation class to elements in view
+          function addAnimation() {
+              document.querySelectorAll('.service img, .service').forEach((element) => {
+                  if (isInView(element)) {
+                      element.classList.add('in-view');
+                  }
+              });
+          }
+
+          // Event listener for scroll events to add animations
+          window.addEventListener('scroll', addAnimation);
+
+          // Check for animation on initial load
+          addAnimation();
+
+          // Subscribe button click handler
+          window.subscribe = function () {
+              // Simple popup logic
+              const modal = document.createElement('div');
+              modal.className = 'modal';
+              modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <p>Thank you for your interest!</p>
+          <!-- Include more content here -->
+        </div>
+      `;
+              document.body.appendChild(modal);
+
+              // Show the modal
+              modal.style.display = 'flex';
+
+              // Close the modal on click
+              modal.querySelector('.close-button').onclick = function () {
+                  modal.style.display = 'none';
+                  document.body.removeChild(modal);
+              };
+          };
+      });
+
+      // Execute the animation check on load
+      addAnimation();
+
+
+      $(".contact-form").submit(function (e) {
+          e.preventDefault(); // Prevent the default form submission
+          var form = $(this);
+          form.find("button[type=submit]").attr("disabled", "disabled"); // Disable the button to prevent multiple submits
+
+          $.ajax({
+              type: "POST",
+              url: "sendEmail.php", // Updated to the PHP script name
+              data: form.serialize(), // Serialize form data for submission
+
+              success: function (response) {
+                  form.find("button[type=submit]").attr("disabled", ""); // Re-enable the button
+                  alert(response); // Alert the response message
+                  form[0].reset(); // Reset the form fields
+                  setTimeout(function () {
+                      window.location.href = "thankyoupage.html"; // Redirect to a thank you page or any other page
+                  }, 1000); // Redirect after 1 second
+              },
+
+              error: function (xhr, status, error) {
+                  alert("An error occurred: " + error); // Alert the error if any occurred
+              }
+          });
+      });
+  </script>
+  <script src="script.js"></script>
+</body>
+
+
+
+</html>
